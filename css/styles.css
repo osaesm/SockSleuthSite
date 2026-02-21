@@ -1,17 +1,21 @@
 /* ===== CSS Variables – easy customization ===== */
 :root {
-  --bg-color: #fdf8f2;          /* dusty yellow */
-  --text-color: #3a2e28;
-  --primary-color: #b46f4c;      /* warm terracotta */
-  --secondary-color: #7f9f8c;     /* muted sage */
-  --navbar-text: #3a2e28;
+  /* New color scheme – dark blue complement */
+  --bg-color: #f0f4fa;           /* very light blue-gray */
+  --text-color: #1e2b3a;          /* dark navy */
+  --primary-color: #2c3e5c;       /* medium dark blue */
+  --secondary-color: #8a9bb5;      /* muted blue-gray */
+  --navbar-text: #1e2b3a;
+  
+  /* Fonts: Futura for headings, Nunito for body (kept for readability) */
   --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --heading-font: 'Nunito', sans-serif;
+  --heading-font: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+  
   --base-font-size: 18px;
   --heading-font-size: 3rem;
   --subheading-font-size: 2rem;
   --border-radius: 4px;
-  --cover-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --cover-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   --content-max-width: 1200px;
   --spacing: 2.5rem;
 }
@@ -32,7 +36,7 @@ body {
   padding-top: 160px; /* enough space for two-line fixed header */
 }
 
-h1, h2, h3 {
+h1, h2, h3, .header-name {
   font-family: var(--heading-font);
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -68,7 +72,7 @@ img {
 }
 
 .header-name {
-  font-size: 3.2rem;
+  font-size: 4rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-color);
@@ -148,6 +152,16 @@ img {
   align-items: start;
 }
 
+/* Reverse the column order (image on right, text on left) */
+.two-col-grid.reverse {
+  direction: rtl; /* changes visual order, but careful with text alignment */
+}
+
+/* But direction: rtl also flips text alignment, so we reset text inside */
+.two-col-grid.reverse > * {
+  direction: ltr; /* keep text left-to-right */
+}
+
 .reviews-grid {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -183,7 +197,7 @@ img {
 }
 
 .btn:hover {
-  background-color: #9a5a3a;
+  background-color: #1f2c40;
   transform: scale(1.02);
 }
 
@@ -192,7 +206,7 @@ img {
 }
 
 .btn-secondary:hover {
-  background-color: #5f7c6b;
+  background-color: #6f809c;
 }
 
 /* ===== About Page ===== */
@@ -263,7 +277,7 @@ input:focus,
 textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(180, 111, 76, 0.2);
+  box-shadow: 0 0 0 3px rgba(44, 62, 92, 0.2);
 }
 
 textarea {
@@ -281,8 +295,9 @@ textarea {
 }
 
 .form-message.success {
-  background-color: #e6d5c0;
-  color: #2b4b3a;
+  background-color: #d4e0ed;
+  border-color: var(--primary-color);
+  color: #1e2b3a;
   border: 1px solid #7f9f8c;
   display: block;
 }

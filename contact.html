@@ -2,89 +2,117 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Francis Cleetus Illustration</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sock Sleuth | Contact Us</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="header-name">Francis Cleetus</div>
-        <nav class="navbar">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="contact.html">Contact Me</a></li>
-                </ul>
-                <div class="nav-social">
-                    <a href="https://www.instagram.com/cleetustagram/" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="header-name">THE SOCK SLEUTH</div>
+    <nav class="navbar">
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-social">
+          <a href="https://www.instagram.com/cleetustagram/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <main class="container">
-        <section class="section">
-            <h1>Contact Me</h1>
-            <p class="contact-blurb">
-                I'd love to hear from you! Whether you have a question about my work, want to discuss a potential
-                project,
-                or just want to say hello, please fill out the form below and I'll get back to you as soon as I can.
-            </p>
+  <main class="container">
+    <section class="section">
+      <h1>Contact Us</h1>
+      <p class="contact-blurb">
+        Have a question for the author or illustrator? Want to invite them to an event or just share your love for
+        <em>The Sock Sleuth</em>? Fill out the form below and your message will be sent directly to Christina and
+        Francis.
+      </p>
 
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-                <div id="form-message" class="form-message"></div>
-            </form>
-        </section>
-    </main>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+        <div id="form-message" class="form-message"></div>
+      </form>
+    </section>
+  </main>
 
-    <footer class="footer">
-        <p>&copy; 2025 Francis Cleetus. All rights reserved.</p>
-    </footer>
+  <footer class="footer">
+    <p>&copy; 2026 The Sock Sleuth. All rights reserved.</p>
+  </footer>
 
-    <script>
-        const form = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
+  <script>
+    (function () {
+      // Initialize EmailJS with your public key
+      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent actual submission
+      const form = document.getElementById('contact-form');
+      const formMessage = document.getElementById('form-message');
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-            if (name === '' || email === '' || message === '') {
-                formMessage.textContent = 'Please fill in all fields.';
-                formMessage.className = 'form-message error';
-                return;
-            }
+        // Show sending state
+        formMessage.textContent = 'Sending...';
+        formMessage.className = 'form-message';
+        formMessage.style.display = 'block';
 
-            // Simulate successful send
-            formMessage.textContent = 'Thank you! Your message has been sent. (Demo)';
+        // Collect form data
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (name === '' || email === '' || message === '') {
+          formMessage.textContent = 'Please fill in all fields.';
+          formMessage.className = 'form-message error';
+          return;
+        }
+
+        // Prepare template parameters
+        const templateParams = {
+          from_name: name,
+          reply_to: email,
+          message: message,
+          // If your template is set up to accept multiple recipients, you can add:
+          // to_email: ['author@example.com', 'illustrator@example.com'] 
+          // But usually you define the recipient in the template itself.
+        };
+
+        // Send email using EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+          .then(function (response) {
+            formMessage.textContent = 'Thank you! Your message has been sent. We\'ll get back to you soon.';
             formMessage.className = 'form-message success';
-
             form.reset();
-        });
-    </script>
+          }, function (error) {
+            formMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+            formMessage.className = 'form-message error';
+            console.error('EmailJS error:', error);
+          });
+      });
+    })();
+  </script>
 </body>
 
 </html>
