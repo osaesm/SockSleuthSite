@@ -1,0 +1,354 @@
+/* ===== CSS Variables – easy customization ===== */
+:root {
+  --bg-color: #fdf8f2;          /* dusty yellow */
+  --text-color: #3a2e28;
+  --primary-color: #b46f4c;      /* warm terracotta */
+  --secondary-color: #7f9f8c;     /* muted sage */
+  --navbar-text: #3a2e28;
+  --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --heading-font: 'Nunito', sans-serif;
+  --base-font-size: 18px;
+  --heading-font-size: 3rem;
+  --subheading-font-size: 2rem;
+  --border-radius: 4px;
+  --cover-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --content-max-width: 1200px;
+  --spacing: 2.5rem;
+}
+
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: var(--base-font-size);
+  line-height: 1.6;
+  padding-top: 160px; /* enough space for two-line fixed header */
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--heading-font-size);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: var(--subheading-font-size);
+  margin-bottom: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Fixed Two‑Line Header ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent; /* blends with page */
+  z-index: 1000;
+  padding: 1.5rem 2rem 0.5rem 2rem;
+  border-bottom: 1px solid rgba(58, 46, 40, 0.15); /* subtle separator */
+  backdrop-filter: blur(2px); /* optional soft blur */
+}
+
+.header-name {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .header-name {
+    font-size: 4rem;
+  }
+}
+
+/* ===== Navbar inside header ===== */
+.navbar {
+  width: 100%;
+}
+
+.nav-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  padding: 0.5rem 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--navbar-text);
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.nav-social a {
+  color: var(--navbar-text);
+  font-size: 1.8rem;
+  transition: color 0.2s;
+}
+
+.nav-social a:hover {
+  color: var(--primary-color);
+}
+
+/* ===== Main Content ===== */
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  margin-bottom: 5rem;
+}
+
+/* ===== Grid Layouts ===== */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing);
+  align-items: start;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: var(--spacing);
+}
+
+/* ===== Home Page ===== */
+.book-cover {
+  box-shadow: var(--cover-shadow);
+  border-radius: var(--border-radius);
+}
+
+.purchase-links {
+  margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;          /* pill shape */
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  background-color: #9a5a3a;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: #5f7c6b;
+}
+
+/* ===== About Page ===== */
+.illustrator-img {
+  border-radius: 50%;            /* circular profile */
+  box-shadow: var(--cover-shadow);
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* ===== Reviews Page ===== */
+.reviews-list {
+  list-style: none;
+}
+
+.reviews-list li {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed rgba(58, 46, 40, 0.2);
+}
+
+.reviews-list li:last-child {
+  border-bottom: none;
+}
+
+.review-text {
+  font-style: italic;
+  color: #5f4e45;
+  font-size: 1.1rem;
+}
+
+.review-author {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #3a2e28;
+}
+
+/* ===== Contact Page ===== */
+.contact-blurb {
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #3a2e28;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(58, 46, 40, 0.2);
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: white;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(180, 111, 76, 0.2);
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+  border-radius: 20px;
+}
+
+.form-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 30px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background-color: #e6d5c0;
+  color: #2b4b3a;
+  border: 1px solid #7f9f8c;
+  display: block;
+}
+
+.form-message.error {
+  background-color: #f3d9d1;
+  color: #a14f3a;
+  border: 1px solid #b46f4c;
+  display: block;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 2.5rem;
+  color: #5f4e45;
+  border-top: 1px solid rgba(58, 46, 40, 0.1);
+  margin-top: 4rem;
+  font-size: 0.95rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  :root {
+    --heading-font-size: 2.5rem;
+    --spacing: 1.8rem;
+    --base-font-size: 16px;
+  }
+
+  body {
+    padding-top: 200px; /* extra space for stacked header */
+  }
+
+  .site-header {
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
+
+  .header-name {
+    font-size: 2.8rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .nav-social a {
+    font-size: 1.5rem;
+  }
+
+  .two-col-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .illustrator-img {
+    max-width: 280px;
+  }
+}
