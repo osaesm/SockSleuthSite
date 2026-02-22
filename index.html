@@ -11,10 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
+<script>
+  function setBodyPadding() {
+    const header = document.querySelector('.site-header');
+    if (header) {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+    }
+  }
+  window.addEventListener('load', setBodyPadding);
+  window.addEventListener('resize', setBodyPadding);
+</script>
+
 <body>
-  <!-- Fixed Two‑Line Header with Book Title -->
   <header class="site-header">
-    <div class="header-name">THE SOCK SLEUTH</div>
+    <img src="images/The_Sock_Sleuth_Logo.png" alt="The Sock Sleuth" class="header-logo">
+    <div class="tagline">Your everyday mystery. Not your everyday detective.</div>
     <nav class="navbar">
       <div class="nav-container">
         <ul class="nav-links">
@@ -53,7 +64,8 @@
             After a high-stakes (and very low-speed) interrogation of Old Willie washer, Ms. Dee Dee dryer,
             and Haggard Harry hamper, the sleuth catches the culprit red-handed: A pair of pants clinging
             to the socks to remember the fun and joy of Emma&#39;s bedtime dance.
-            It&#39;s a whimsical race against the clock, though with Cole Sloth in charge, the &quot;race&quot; is more of a
+            It&#39;s a whimsical race against the clock, though with Cole Sloth in charge, the &quot;race&quot; is more
+            of a
             crawl that ends with a solved mystery and a sleepy detective.
           </p>
         </div>

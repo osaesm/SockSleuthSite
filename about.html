@@ -10,9 +10,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
+<script>
+  function setBodyPadding() {
+    const header = document.querySelector('.site-header');
+    if (header) {
+      document.body.style.paddingTop = header.offsetHeight + 'px';
+    }
+  }
+  window.addEventListener('load', setBodyPadding);
+  window.addEventListener('resize', setBodyPadding);
+</script>
+
+
 <body>
   <header class="site-header">
-    <div class="header-name">The Sock Sleuth</div>
+    <img src="images/The_Sock_Sleuth_Logo.png" alt="The Sock Sleuth" class="header-logo">
+    <div class="tagline">Your everyday mystery. Not your everyday detective.</div>
     <nav class="navbar">
       <div class="nav-container">
         <ul class="nav-links">
@@ -22,7 +35,8 @@
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
         <div class="nav-social">
-          <a href="https://www.instagram.com/cleetustagram/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/cleetustagram/" target="_blank" aria-label="Instagram"><i
+              class="fab fa-instagram"></i></a>
         </div>
       </div>
     </nav>
