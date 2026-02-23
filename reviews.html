@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
-<script>
-  function setBodyPadding() {
-    const header = document.querySelector('.site-header');
-    if (header) {
-      document.body.style.paddingTop = header.offsetHeight + 'px';
-    }
-  }
-  window.addEventListener('load', setBodyPadding);
-  window.addEventListener('resize', setBodyPadding);
-</script>
 
 <body>
   <header class="site-header">
@@ -46,18 +36,21 @@
       <div class="reviews-grid">
         <!-- Left Column: Small Book Cover -->
         <div>
-          <img src="https://via.placeholder.com/200x250?text=The+Sock+Sleuth+Cover" alt="The Sock Sleuth cover" class="book-cover">
+          <img src="https://via.placeholder.com/200x250?text=The+Sock+Sleuth+Cover" alt="The Sock Sleuth cover"
+            class="book-cover">
         </div>
         <!-- Right Column: Book Title and Reviews -->
         <div>
           <h2>The Sock Sleuth</h2>
           <ul class="reviews-list">
             <li>
-              <p class="review-text">"A delightful whodunnit with illustrations that leap off the page. Young readers will be hooked!"</p>
+              <p class="review-text">"A delightful whodunnit with illustrations that leap off the page. Young readers
+                will be hooked!"</p>
               <p class="review-author">— The New York Times</p>
             </li>
             <li>
-              <p class="review-text">"Christina Caragein's clever text and Francis Cleetus's charming art are a perfect pair."</p>
+              <p class="review-text">"Christina Caragein's clever text and Francis Cleetus's charming art are a perfect
+                pair."</p>
               <p class="review-author">— School Library Journal</p>
             </li>
             <li>
@@ -65,7 +58,8 @@
               <p class="review-author">— BookPage</p>
             </li>
             <li>
-              <p class="review-text">"My kids ask for this book every night. They love solving the mystery alongside the characters."</p>
+              <p class="review-text">"My kids ask for this book every night. They love solving the mystery alongside the
+                characters."</p>
               <p class="review-author">— Amazon Customer</p>
             </li>
           </ul>
@@ -78,4 +72,5 @@
     <p>&copy; 2026 The Sock Sleuth. All rights reserved.</p>
   </footer>
 </body>
+
 </html>
