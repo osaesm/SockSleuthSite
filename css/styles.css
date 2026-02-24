@@ -1,5 +1,6 @@
 /* ===== CSS Variables – easy customization ===== */
 :root {
+  --new-color: #2596be;
   /* New color scheme – dark blue complement */
   --bg-color: #f0f4fa;
   /* very light blue-gray */
@@ -76,43 +77,90 @@ img {
   /* keeps it above content if needed, but not fixed */
 }
 
-/* Header with logo and tagline */
-.header-logo {
-  max-width: 650px;
-  /* limits size on large screens */
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 0.5rem auto;
-  /* center and add space below */
+/* Center the title block within the header */
+.title-wrapper {
+  text-align: center;
 }
 
-.tagline {
+.title-block {
+  display: inline-grid;
+  grid-template-columns: min-content 1fr;
+  align-items: start;
+  /* tops aligned */
+  gap: 0;
+  /* no gap between columns */
   font-family: var(--heading-font);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: var(--new-color);
+}
+
+.rotate-wrapper {
+  display: flex;
+  /* enables easy positioning */
+  align-items: flex-start;
+  /* stick to top */
+  justify-content: flex-start;
+  width: min-content;
+  /* shrink to fit the rotated word's width */
+  height: 1.2em;
+  /* keep height equal to line-height */
+  padding: 0;
+  margin: 0;
+}
+
+.rotate-word {
+  font-size: 0.35em;
+  transform: rotate(-90deg) translateX(-138%) translateY(80%);
+  transform-origin: top left;
+  white-space: nowrap;
+  line-height: 1;
+  /* avoid extra height */
+  display: block;
+  /* removes any inline spacing */
+  /* Optional: fine-tune vertical alignment */
+  /* margin-top: -0.05em; */
+  /* adjust if needed */
+}
+
+.rest-title {
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Tagline (already exists – ensure it's below) */
+.tagline {
+  font-family: var(--font-family);
   font-size: 1.2rem;
   color: var(--primary-color);
-  /* dark blue from your scheme */
   letter-spacing: 1px;
   font-weight: 400;
   margin-bottom: 1rem;
   text-align: center;
-  /* text-transform: uppercase; */
-  /* optional, gives a crisp look */
+  text-transform: uppercase;
   border-bottom: 1px solid rgba(30, 43, 58, 0.1);
-  /* subtle separation from navbar */
   padding-bottom: 1rem;
 }
 
-/* Adjust header padding to accommodate logo */
-.site-header {
-  padding: 1.5rem 2rem 0.5rem 2rem;
-  /* top, right, bottom, left */
-}
-
-/* On mobile, scale logo down */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-  .header-logo {
-    max-width: 280px;
+  .title-block {
+    font-size: 2.5rem;
+  }
+
+  .rotate-wrapper {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .rotate-word {
+    font-size: 0.35em;
+    transform: rotate(-90deg) translateX(-138%) translateY(200%);
+    transform-origin: top left;
+    /* keep same ratio */
   }
 
   .tagline {
