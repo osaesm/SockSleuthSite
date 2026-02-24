@@ -223,6 +223,7 @@ img {
 
 .section {
   margin-bottom: 5rem;
+  margin-top: 2rem;
 }
 
 /* ===== Grid Layouts ===== */
@@ -255,6 +256,10 @@ img {
 .book-cover {
   /* box-shadow: var(--cover-shadow); */
   border-radius: var(--border-radius);
+}
+
+.book-cover-review {
+    max-width: 200%;
 }
 
 .purchase-links {
@@ -303,6 +308,12 @@ img {
 }
 
 /* ===== Reviews Page ===== */
+
+.right-col {
+  margin-left: 18rem;
+
+}
+
 .reviews-list {
   list-style: none;
 }
