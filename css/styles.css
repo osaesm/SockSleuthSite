@@ -326,6 +326,15 @@ img {
   margin-top: 0.5rem;
   font-weight: 600;
   color: #3a2e28;
+  /* float: left; */
+}
+
+.mag-glass {
+  width: 80px;
+  height: 80px;
+  margin-top: -1rem;
+  float: left;
+  transform: rotate(180deg);
 }
 
 /* ===== Contact Page ===== */
