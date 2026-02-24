@@ -248,7 +248,7 @@ img {
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 3fr 4fr;
   gap: var(--spacing);
 }
 
@@ -256,10 +256,6 @@ img {
 .book-cover {
   /* box-shadow: var(--cover-shadow); */
   border-radius: var(--border-radius);
-}
-
-.book-cover-review {
-    max-width: 200%;
 }
 
 .purchase-links {
@@ -300,20 +296,11 @@ img {
 
 /* ===== About Page ===== */
 .illustrator-img {
-  border-radius: 50%;
-  /* circular profile */
-  box-shadow: var(--cover-shadow);
   max-width: 350px;
   margin: 0 auto;
 }
 
 /* ===== Reviews Page ===== */
-
-.right-col {
-  margin-left: 18rem;
-
-}
-
 .reviews-list {
   list-style: none;
 }
